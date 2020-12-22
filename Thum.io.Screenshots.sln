@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thum.io.Screenshots", "Thum.io.Screenshots\Thum.io.Screenshots.csproj", "{1F4D16A4-ACD9-4DFD-BC65-AD93FB0A836F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thum.io.Screenshots.Console", "Thum.io.Screenshots.Console\Thum.io.Screenshots.Console.csproj", "{79FC760B-691C-46CD-A286-7BFE82290F20}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1F4D16A4-ACD9-4DFD-BC65-AD93FB0A836F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F4D16A4-ACD9-4DFD-BC65-AD93FB0A836F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F4D16A4-ACD9-4DFD-BC65-AD93FB0A836F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F4D16A4-ACD9-4DFD-BC65-AD93FB0A836F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79FC760B-691C-46CD-A286-7BFE82290F20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79FC760B-691C-46CD-A286-7BFE82290F20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79FC760B-691C-46CD-A286-7BFE82290F20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79FC760B-691C-46CD-A286-7BFE82290F20}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

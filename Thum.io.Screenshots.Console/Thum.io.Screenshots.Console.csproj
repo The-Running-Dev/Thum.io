@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Thum.io.Screenshots\Thum.io.Screenshots.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.CommandLineUtils" Version="1.1.1" />
+      <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.10" />
+      <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="3.1.10" />
+      <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.10" />
+      <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.1.10" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="appsettings.development.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="appsettings.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
+</Project>
