@@ -2,9 +2,12 @@ name: .NET
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
   pull_request:
-    branches: [ master ]
+    types: [closed]
+    branches:
+      - master
 
 jobs:
   build:
@@ -20,15 +23,18 @@ jobs:
       with:
         dotnet-version: 3.1.301
 
-    - name: Restore dependencies
+    - name: Restore Dependencies
       run: dotnet restore
 
-    - name: Build
-      run: dotnet build --no-restore
+    - name: Increment Version
+      uses: anothrNick/github-tag-action@1.26.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Publish NuGet
-      uses: brandedoutcast/publish-nuget@v2.5.5
-      with:
-        PROJECT_FILE_PATH: Thum.io.Screenshots/Thum.io.Screenshots.csproj
-        PACKAGE_NAME: Thum.io.Screenshots
-        NUGET_KEY: ${{ secrets.NuGet_API_Key }}
+    - name: Build NuGet Package
+      run: |
+        cd <project>
+        dotnet pack -c Release -o out
+
+    - name: Publish Package
+      run: dotnet nuget push ./<project>/out/*.nupkg -k ${{ secrets.NuGet_API_Key }} --skip-duplicate --no-symbols true
