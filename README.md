@@ -22,7 +22,7 @@
 
 ```json
 {
-    "ScreenshotService": {
+    "ScreenShotService": {
         "ApiKey": "{Id}-{Url Key}"
     }
 }
@@ -52,7 +52,7 @@ dotnet add package Thum.io.Screenshots
 
 ```json
 {
-    "ScreenshotService": {
+    "ScreenShotService": {
         "ApiKey": "{Id}-{Url Key}"
     }
 }
@@ -74,23 +74,23 @@ var config = new ConfigurationBuilder()
 services.AddThumIoScreenshots(config);
 ```
 
-4. Inject the IScreenshotService and use it
+4. Inject the IScreenShotService and use it
 
 ```csharp
 public class App
 {
-    private readonly IScreenshotService _screenshotService;
+    private readonly IScreenShotService _screenShotService;
 
-    public App(IScreenshotService screenshotService)
+    public App(IScreenShotService screenShotService)
     {
-        _screenshotService = screenshotService ?? throw new ArgumentNullException(nameof(screenshotService));
+        _screenShotService = screenShotService ?? throw new ArgumentNullException(nameof(screenShotService));
     }
 
     public async Task TakeScreenshot(string url, string path, ImageModifierOptions options = null)
     {
         if (!string.IsNullOrEmpty(url) && !string.IsNullOrEmpty(path))
         {
-            await _screenshotService.ToDisk(url, path, options);
+            await _screenShotService.ToDisk(url, path, options);
         }
 
         return Task.CompletedTask;
