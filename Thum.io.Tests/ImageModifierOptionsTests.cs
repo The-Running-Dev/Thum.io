@@ -8,7 +8,7 @@ namespace Thum.io.Tests
     public class ImageModifierOptionsTests
     {
         [Test]
-        public void Options_as_String_Should_Be_Empty_If_No_Values_Exist()
+        public void Options_Should_Be_Empty_If_No_Values_Exist()
         {
             var options = new ImageModifierOptions();
 

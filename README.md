@@ -1,12 +1,10 @@
 # [Thum.io.Screenshots](https://www.thum.io/)
 
 - [Thum.io.Screenshots](#thumioscreenshots)
-  - [CHANGELOG](#changelog)
   - [Setup](#setup)
   - [Take a Screenshot from the Command Line](#take-a-screenshot-from-the-command-line)
   - [How to Use from Your Own Project](#how-to-use-from-your-own-project)
-
-## [CHANGELOG](CHANGELOG.md)
+  - [CHANGELOG](#changelog)
 
 ## Setup
 
@@ -99,3 +97,5 @@ public class App
     }
 }
 ```
+
+## [CHANGELOG](CHANGELOG.md)

@@ -51,7 +51,7 @@ namespace Thum.io.Tests
 
             _settings = Options.Create(new Settings { Url = "https://image.thum.io", ApiKey = "ApiKey" });
             _fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>());
-            _fileSystem.AddDirectory(@"C:\Temp");
+            _fileSystem.AddDirectory(@"/home/temp");
             _httpClient = new HttpClient(_httpMessageHandler.Object);
             _service = new ScreenShotService(_settings, _fileSystem, _httpClient);
         }
@@ -103,7 +103,7 @@ namespace Thum.io.Tests
         public async Task To_Disk_Should_Save_to_File_System()
         {
             var screenShotUrl = "https://google.com";
-            var path = "C:/Temp/Image.png";
+            var path = "/home/temp/image.png";
 
             await _service.ToDisk(screenShotUrl, path);
 
