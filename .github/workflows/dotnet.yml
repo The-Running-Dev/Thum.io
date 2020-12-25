@@ -33,7 +33,7 @@ jobs:
         DEFAULT_BUMP: patch
 
     - name: Build NuGet Package
-      run: dotnet pack Thum.io.Screenshots/Thum.io.Screenshots.csproj -c Release -o ${{ github.workspace }}/Artifacts
+      run: dotnet pack Thum.io.Screenshots/Thum.io.Screenshots.csproj -c Release -o ${GITHUB_WORKSPACE}/Artifacts
 
     - name: Publish Package
-      run: dotnet nuget push ${{ github.workspace }}/Artifacts/*.nupkg -k ${{ secrets.NuGet_API_Key }} --skip-duplicate --no-symbols true
+      run: dotnet nuget push ${GITHUB_WORKSPACE}/Artifacts/*.nupkg -k ${{ secrets.NuGet_API_Key }} --skip-duplicate --no-symbols true
