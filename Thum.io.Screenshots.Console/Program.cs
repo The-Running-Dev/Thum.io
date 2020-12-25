@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Reflection;
 
 using Microsoft.Extensions.Logging;
@@ -27,7 +28,14 @@ namespace Thum.io.Screenshots.Console
                 .AddSingleton<App>()
                 .BuildServiceProvider();
 
-            services.GetService<App>().Main(args);
+            try
+            {
+                services.GetService<App>().Main(args);
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine($"The Application Encountered an Error...{ex.Message}");
+            }
         }
     }
 }

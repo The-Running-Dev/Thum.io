@@ -1,5 +1,9 @@
+using System.IO.Abstractions;
+
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+
+using Thum.io.Screenshots.Interfaces;
 
 namespace Thum.io.Screenshots
 {
@@ -8,12 +12,13 @@ namespace Thum.io.Screenshots
         public static IServiceCollection AddThumIoScreenshots(
             this IServiceCollection services,
             IConfiguration configuration,
-            string sectionName = "ScreenshotService")
+            string sectionName = "ScreenShotService")
         {
             var config = configuration.GetSection(sectionName);
             
             services.Configure<Settings>(config);
-            services.AddHttpClient<IScreenshotService, ScreenshotService>();
+            services.AddTransient<IFileSystem, FileSystem>();
+            services.AddHttpClient<IScreenShotService, ScreenShotService>();
             
             return services;
         }

@@ -1,5 +1,11 @@
 # [Thum.io.Screenshots](https://www.thum.io/)
 
+- [Thum.io.Screenshots](#thumioscreenshots)
+  - [Setup](#setup)
+  - [Take a Screenshot from the Command Line](#take-a-screenshot-from-the-command-line)
+  - [How to Use from Your Own Project](#how-to-use-from-your-own-project)
+  - [CHANGELOG](#changelog)
+
 ## Setup
 
 1. [Signup](https://www.thum.io/signup)
@@ -10,16 +16,14 @@
 
 4. Read the [Docs](https://www.thum.io/documentation/api/url) for parameters
 
-## Take a Screenshot from the Command Line with the Console Application
+## Take a Screenshot from the Command Line
 
-1. Update the ```appsettings.json``` to set the ApiKey
+1. Update the ```appsettings.json``` to set the ApiKey in the Console Application
 
 ```json
 {
     "ScreenshotService": {
-        "Url": "https://image.thum.io",
-        "ApiKey": "{Id}-{Url Key}",
-        "Parameters": "width/1200/crop/600/noanimate"
+        "ApiKey": "{Id}-{Url Key}"
     }
 }
 ```
@@ -49,9 +53,7 @@ dotnet add package Thum.io.Screenshots
 ```json
 {
     "ScreenshotService": {
-        "Url": "https://image.thum.io",
-        "ApiKey": "{Id}-{Url Key}",
-        "Parameters": "width/1200/crop/600/noanimate"
+        "ApiKey": "{Id}-{Url Key}"
     }
 }
 ```
@@ -84,14 +86,16 @@ public class App
         _screenshotService = screenshotService ?? throw new ArgumentNullException(nameof(screenshotService));
     }
 
-    public async Task TakeScreenshot(string url, string path)
+    public async Task TakeScreenshot(string url, string path, ImageModifierOptions options = null)
     {
         if (!string.IsNullOrEmpty(url) && !string.IsNullOrEmpty(path))
         {
-            await _screenshotService.ToDisk(url, path);
+            await _screenshotService.ToDisk(url, path, options);
         }
 
         return Task.CompletedTask;
     }
 }
 ```
+
+## [CHANGELOG](https://github.com/The-Running-Dev/Thum.io.Screenshots/CHANGELOG.md)
