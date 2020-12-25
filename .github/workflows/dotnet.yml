@@ -11,6 +11,8 @@ on:
 
 jobs:
   build:
+    if: github.event_name == 'push' && contains(toJson(github.event.commits), '***NO_CI***') == false && contains(toJson(github.event.commits), '[ci skip]') == false && contains(toJson(github.event.commits), '[skip ci]') == false
+    name: Building Package
     runs-on: ubuntu-latest
 
     steps:
@@ -25,6 +27,9 @@ jobs:
 
     - name: Restore Dependencies
       run: dotnet restore
+
+    - name: Running Tests
+      run: dotnet test --no-restore
 
     - name: Incrementing Version
       uses: anothrNick/github-tag-action@1.26.0
