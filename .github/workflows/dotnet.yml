@@ -30,11 +30,10 @@ jobs:
       uses: anothrNick/github-tag-action@1.26.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        DEFAULT_BUMP: patch
 
     - name: Build NuGet Package
-      run: |
-        cd <project>
-        dotnet pack -c Release -o out
+      run: dotnet pack -c Release -o out
 
     - name: Publish Package
       run: dotnet nuget push ./<project>/out/*.nupkg -k ${{ secrets.NuGet_API_Key }} --skip-duplicate --no-symbols true
