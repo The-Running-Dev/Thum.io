@@ -26,14 +26,14 @@ jobs:
     - name: Restore Dependencies
       run: dotnet restore
 
-    - name: Increment Version
+    - name: Incrementing Version
       uses: anothrNick/github-tag-action@1.26.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         DEFAULT_BUMP: patch
 
-    - name: Build NuGet Package
+    - name: Building Package
       run: dotnet pack Thum.io.Screenshots/Thum.io.Screenshots.csproj -c Release
 
-    - name: Publish Package
-      run: dotnet nuget push Thum.io.Screenshots/Thum.io.Screenshots/bin/Release/*.nupkg -k ${{ secrets.NuGet_API_Key }} --skip-duplicate --no-symbols true
+    - name: Publishing Package
+      run: dotnet nuget push **/*.nupkg -k ${{ secrets.NuGet_API_Key }} -s https://api.nuget.org/v3/index.json -skip-duplicate --no-symbols true
