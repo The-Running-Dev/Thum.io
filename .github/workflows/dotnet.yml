@@ -33,7 +33,7 @@ jobs:
         DEFAULT_BUMP: patch
 
     - name: Build NuGet Package
-      run: dotnet pack Thum.io.Screenshots/Thum.io.Screenshots.csproj -c Release -o
+      run: dotnet pack Thum.io.Screenshots/Thum.io.Screenshots.csproj -c Release
 
     - name: Publish Package
       run: dotnet nuget push **/*.nupkg -k ${{ secrets.NuGet_API_Key }} --skip-duplicate --no-symbols true
