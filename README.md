@@ -3,7 +3,7 @@
 - [Thum.io .NET Package (Unofficial)](#thumio-net-package-unofficial)
   - [Setup](#setup)
   - [Use the CLI](#use-the-cli)
-  - [How in Your Own Code](#how-in-your-own-code)
+  - [Use in Your Own Code](#use-in-your-own-code)
   - [CHANGELOG](#changelog)
 
 ## Setup
@@ -26,6 +26,12 @@
 dotnet run -p Thum.io.CLI
 ```
 
+or
+
+```
+dotnet run -p Thum.io.CLI -- configure -k "{ID}-{URL Key}"
+```
+
 - Take a screenshot of http://google.com and save it to disk:
 
 ```powershell
@@ -38,7 +44,7 @@ dotnet run -p Thum.io.CLI -- screenshot "http://google.com" .\google.png
 dotnet run -p Thum.io.CLI -- -h
 ```
 
-## How in Your Own Code
+## Use in Your Own Code
 
 The package is on the [NuGet Gallery](https://www.nuget.org/packages/Thum.io.Screenshots/)
 
