@@ -1,8 +1,6 @@
 using NUnit.Framework;
 using FluentAssertions;
 
-using Thum.io.Screenshots;
-
 namespace Thum.io.Tests
 {
     public class ImageModifierOptionsTests

@@ -1,9 +1,9 @@
-# [Thum.io.Screenshots](https://www.thum.io/)
+# [Thum.io](https://www.thum.io/) .NET Package (Unofficial)
 
-- [Thum.io.Screenshots](#thumioscreenshots)
+- [Thum.io .NET Package (Unofficial)](#thumio-net-package-unofficial)
   - [Setup](#setup)
-  - [Take a Screenshot from the Command Line](#take-a-screenshot-from-the-command-line)
-  - [How to Use from Your Own Project](#how-to-use-from-your-own-project)
+  - [Use the CLI](#use-the-cli)
+  - [How in Your Own Code](#how-in-your-own-code)
   - [CHANGELOG](#changelog)
 
 ## Setup
@@ -16,36 +16,40 @@
 
 4. Read the [Docs](https://www.thum.io/documentation/api/url) for parameters
 
-## Take a Screenshot from the Command Line
+5. Use the CLI
 
-1. Update the ```appsettings.json``` to set the ApiKey in the Console Application
+## Use the CLI
 
-```json
-{
-    "ScreenShotService": {
-        "ApiKey": "{Id}-{Url Key}"
-    }
-}
+1. Set your API key in the CLI by running without any arguments:
+
+```
+dotnet run -p Thum.io.CLI
 ```
 
 - Take a screenshot of http://google.com and save it to disk:
 
 ```powershell
-dotnet run -p Thum.io.Screenshots.Console -- screenshot "http://google.com" .\google.png
+dotnet run -p Thum.io.CLI -- screenshot "http://google.com" .\google.png
 ```
 
-## How to Use from Your Own Project
+- Get help
+
+```powershell
+dotnet run -p Thum.io.CLI -- -h
+```
+
+## How in Your Own Code
 
 The package is on the [NuGet Gallery](https://www.nuget.org/packages/Thum.io.Screenshots/)
 
-1. Install the Thum.io.Screenshots NuGet package
+1. Install the Thum.io NuGet package
 
 ```powershell
-Install-Package Thum.io.Screenshots
+Install-Package Thum.io
 ```
 
 ```powershell
-dotnet add package Thum.io.Screenshots
+dotnet add package Thum.io
 ```
 
 2. Update your ```appsettings.json``` to set the ApiKey

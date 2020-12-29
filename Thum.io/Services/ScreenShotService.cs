@@ -5,44 +5,45 @@ using System.IO.Abstractions;
 using System.Threading.Tasks;
 
 using Microsoft.Extensions.Options;
-using Thum.io.Screenshots.Interfaces;
 
-namespace Thum.io.Screenshots
+using Thum.io.Interfaces;
+
+namespace Thum.io.Services
 {
     public class ScreenShotService : IScreenShotService
     {
-        private readonly Settings _settings;
+        public Settings Settings { get; set; }
         
         private readonly IFileSystem _fileSystem;
 
         private readonly HttpClient _httpClient;
-        
+
         public ScreenShotService(IOptions<Settings> settings, IFileSystem fileSystem, HttpClient httpClient)
         {
-            _settings = settings.Value;
+            Settings = settings.Value;
             _fileSystem = fileSystem;
             _httpClient = httpClient;
-
-            if (_settings.ApiKey.IsEmpty())
-            {
-                throw new ArgumentException($"Please Provide Your API Key");
-            }
-
-            _httpClient.BaseAddress = new Uri(_settings.Url ?? Constants.Url);
         }
 
         public async Task<MemoryStream> ToMemory(string url, ImageModifierOptions options = null)
         {
+            if (Settings.ApiKey.IsEmpty())
+            {
+                throw new ArgumentException("Please Provide Your API Key");
+            }
+
+            _httpClient.BaseAddress = new Uri(Settings.Url ?? Constants.Url);
+
             options = options ?? new ImageModifierOptions { NoAnimate = true };
             options.NoAnimate = true;
 
-            var response = await _httpClient.GetAsync(
-                Constants.ScreenShotParameters.FormatWith(new
-                {
-                    _settings.ApiKey,
-                    Parameters = options.ToString(),
-                    url
-                }));
+            var parameters = Constants.ScreenShotParameters.FormatWith(new
+            {
+                Settings.ApiKey,
+                Parameters = options.ToString(),
+                url
+            });
+            var response = await _httpClient.GetAsync(parameters);
             var content = await response.Content.ReadAsByteArrayAsync();
             var memoryStream = new MemoryStream(content, 0, content.Length);
 

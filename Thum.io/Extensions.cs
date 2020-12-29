@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using System.Text.RegularExpressions;
 
-namespace Thum.io.Screenshots
+namespace Thum.io
 {
     public static class Extensions
     {

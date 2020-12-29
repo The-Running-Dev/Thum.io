@@ -1,4 +1,4 @@
-﻿namespace Thum.io.Screenshots
+﻿namespace Thum.io
 {
     public static class Constants
     {

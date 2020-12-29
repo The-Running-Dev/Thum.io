@@ -1,10 +1,12 @@
 using System.IO;
 using System.Threading.Tasks;
 
-namespace Thum.io.Screenshots.Interfaces
+namespace Thum.io.Interfaces
 {
     public interface IScreenShotService
     {
+        Settings Settings { get; set; }
+
         /// <summary>
         /// Takes a screenshot and returns it as a memory stream
         /// </summary>
@@ -20,6 +22,6 @@ namespace Thum.io.Screenshots.Interfaces
         /// <param name="path">The file system path where to save the screenshot</param>
         /// <param name="options">The image modifier options</param>
         /// <returns></returns>
-        Task ToDisk(string url, string path, ImageModifierOptions parameters = null);
+        Task ToDisk(string url, string path, ImageModifierOptions options = null);
     }
 }

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Thum.io</id>
+    <version>1.0.0</version>
+    <title>Thum.io</title>
+    <authors>TheRunningDev</authors>
+    <owners>TheRunningDev</owners>
+    <projectUrl>https://github.com/The-Running-Dev/Thum.io.Screenshots</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>
+    Provides .NET integration with the Thum.io service
+    </description>
+    <releaseNotes>
+2020.12.29 - Renamed Package, Better Command Line Configuration
+
+- Renamed package to ```Thum.io```
+- Storing API key in a INI configuration file
+
+2020.12.25 - Support for Image Modifier Options, Width/Crop from the Console, Unit Tests
+
+- Support for all [image modifier options](https://www.thum.io/documentation/api/url) with ImageModifierOptions
+- Unit tests for ImageModifierOptions, and ScreenShotService
+- Support for ```-w|--width``` and ```-c|--crop``` in the Console application
+    </releaseNotes>
+    <copyright>Copyright 2020</copyright>
+    <tags>thumb.io screenshot</tags>
+  </metadata>
+</package>

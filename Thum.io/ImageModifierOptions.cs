@@ -2,7 +2,7 @@ using System;
 using System.Reflection;
 using System.Collections.Generic;
 
-namespace Thum.io.Screenshots
+namespace Thum.io
 {
     /// <summary>
     /// The API image modifier options

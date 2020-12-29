@@ -3,9 +3,10 @@ using System.IO.Abstractions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-using Thum.io.Screenshots.Interfaces;
+using Thum.io.Services;
+using Thum.io.Interfaces;
 
-namespace Thum.io.Screenshots
+namespace Thum.io
 {
     public static class ServiceCollectionExtensions
     {

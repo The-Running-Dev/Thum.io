@@ -1,7 +1,13 @@
-# Change Log for [Thum.io.Screenshots](https://www.thum.io/)
+# Change Log for the [Thum.io](https://www.thum.io/) Package
 
-- [Change Log for Thum.io.Screenshots](#change-log-for-thumioscreenshots)
+- [Change Log for the Thum.io Package](#change-log-for-the-thumio-package)
+  - [2020.12.29 - Renamed Package, Better Command Line Configuration](#20201229---renamed-package-better-command-line-configuration)
   - [2020.12.25 - Support for Image Modifier Options, Width/Crop from the Console, Unit Tests](#20201225---support-for-image-modifier-options-widthcrop-from-the-console-unit-tests)
+
+## 2020.12.29 - Renamed Package, Better Command Line Configuration
+
+- Renamed package to ```Thum.io```
+- Storing API key in a INI configuration file
 
 ## 2020.12.25 - Support for Image Modifier Options, Width/Crop from the Console, Unit Tests
 
