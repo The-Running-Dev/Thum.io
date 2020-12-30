@@ -20,10 +20,12 @@ namespace Thum.io.CLI.Services
 
         private static readonly string _configDirName = ".thum.io";
 
-        private static readonly string _configFileName = "profile.ini";
+        private static readonly string _configFileName = "profiles.ini";
+
+        private readonly Profile _profile;
 
         private readonly IINIFile _iniFile;
-
+        
         public ProfileService(IINIFile iniFile)
         {
             _iniFile = iniFile;
@@ -37,13 +39,12 @@ namespace Thum.io.CLI.Services
             }
 
             var section = _iniFile.Sections.FirstOrDefault();
-            var profile = new Profile
+            
+            return new Profile
             {
                 Name = section,
                 ApiKey = Decrypt(_iniFile[section][nameof(Profile.ApiKey)])
             };
-
-            return profile;
         }
 
         public Task Create(string apiKey, string name = "default")

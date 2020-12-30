@@ -2,7 +2,6 @@
   "profiles": {
     "Debug": {
       "commandName": "Project",
-      "commandLineArgs": "screenshot -u http://google.com",
       "environmentVariables": {
         "DOTNET_ENVIRONMENT": "development"
       }

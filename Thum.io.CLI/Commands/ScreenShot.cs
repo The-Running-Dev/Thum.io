@@ -12,7 +12,7 @@ namespace Thum.io.CLI.Commands
 {
     [Command(
         Name = "screenshot",
-        Description = "Takes a screenshot of a URL and saves it to a file",
+        Description = "Take a screenshot of a URL and save it to a file",
         UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.CollectAndContinue,
         OptionsComparison = StringComparison.InvariantCultureIgnoreCase
     )]
@@ -75,10 +75,11 @@ namespace Thum.io.CLI.Commands
 
             try
             {
+                // Prompt for URL and File, if they were not provided
                 Url ??= Prompt.GetString("Url:");
                 File ??= Prompt.GetString("File:", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "screenshot.png"));
                 
-                // Use the API key from the command line, or the profile one
+                // Use the API key from the command line, or the profile
                 _screenShotService.Settings.ApiKey = ApiKey ?? Profile.ApiKey;
 
                 var parameters = new ImageModifierOptions

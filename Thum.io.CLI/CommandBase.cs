@@ -5,10 +5,9 @@ using System.Runtime.InteropServices;
 
 using Microsoft.Extensions.Logging;
 using McMaster.Extensions.CommandLineUtils;
-using Serilog;
+
 using Thum.io.CLI.Models;
 using Thum.io.CLI.Interfaces;
-using ILogger = Microsoft.Extensions.Logging.ILogger;
 
 namespace Thum.io.CLI
 {
@@ -19,7 +18,7 @@ namespace Thum.io.CLI
             CommandOptionType.SingleValue,
             ShortName = "k",
             LongName = "key",
-            Description = "API Key in the format {Id}-{Url Key}",
+            Description = "API key in the format {Id}-{Url Key}",
             ValueName = "API Key",
             ShowInHelpText = true
         )]

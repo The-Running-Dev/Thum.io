@@ -9,7 +9,6 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-using Thum.io.CLI.Models;
 using Thum.io.CLI.Commands;
 using Thum.io.CLI.Services;
 using Thum.io.CLI.Interfaces;
@@ -28,7 +27,6 @@ namespace Thum.io.CLI
                     var configuration = new ConfigurationBuilder()
                         .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
                         .AddJsonFile($"appsettings.json", true, true)
-                        .AddIniFile(ProfileService.ConfigFile, true, true)
                         .AddEnvironmentVariables()
                         .Build();
 
@@ -50,7 +48,6 @@ namespace Thum.io.CLI
                         }
                     });
 
-                    services.Configure<Profile>(configuration);
                     services.AddTransient<IINIFile>(_ => new INIFile(ProfileService.ConfigFile));
                     services.AddTransient<IProfileService, ProfileService>();
                     services.AddThumIoScreenshots(configuration);
